@@ -105,9 +105,10 @@ class Speech2SpeechFleursDatasetBuilder:
         elif self.split == "train":
             print ("LOADING TRAIN !!!!!!!!!!!!!!!!!!!!!!")
             ds = load_from_disk("hugging_face_cache/train")
+        print ("CODE UPDATE !!!!!!!!!!!!!")
         for item in ds:
-            audio_path = os.path.join(
-                os.path.dirname(item["path"]), item["audio"]["path"]
+            
+            audio_path = item["path"]
             )
             (sample_id, audio_local_path, waveform, sampling_rate, text) = (
                 item["id"],
