@@ -109,7 +109,7 @@ class Speech2SpeechFleursDatasetBuilder:
         for item in ds:
             
             audio_path = item["path"]
-            )
+            
             (sample_id, audio_local_path, waveform, sampling_rate, text) = (
                 item["id"],
                 audio_path,
