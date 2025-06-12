@@ -1,6 +1,6 @@
 finetune seamless4t is extremely hard but rewarding , here I finetune on my own custom dataset , enjoy <br>
 U can skip to step 2 if you want to finetune on my demo dataset only 
-this is how I am able to finetune seamless4t , you can take inspiration from this and do with your own case; here I finetune seamless4t_medium model on RTX 3090(24GB VRAM) for SPEECH_TO_TEXT TASK 
+this is how I am able to finetune seamless4t , you can take inspiration from this and do with your own case; here I finetune seamless4t_medium model on RTX 3090(24GB VRAM) for SPEECH_TO_TEXT TASK (model during finetuning takes up nearly 19GB)
 - step 1: I create a dataset like FLEURS then push to huggingface dataset hub , I have a csv contains local dataset (using my script create_fleurs_dataset.py here)
 - step 2: I load those dataset and save dataset value in ./huggingface_cache for later load
 (using script load_save_train.py and load_save_val.py)
@@ -33,8 +33,8 @@ python src/seamless_communication/cli/m4t/finetune/dataset.py \
    --eval_dataset $DATASET_DIR/validation_manifest.json \
    --learning_rate 1e-6 \
    --warmup_steps 100 \
-   --max_epochs 10 \
-   --patience 5 \
+   --max_epochs 50 \
+   --patience 50 \
    --model_name seamlessM4T_medium \
    --save_model_to $DATASET_DIR/checkpoint.pt \
    --batch_size 1
